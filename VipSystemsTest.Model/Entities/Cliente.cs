@@ -17,7 +17,7 @@ namespace VipSystemsTest.Model.Entities
         public DateTime DataDeNascimento { get; set; }
         public required string Senha { get; set; }
         [Column("Mae")]
-        public string? NomeDaMae { get; set; }
+        public required string NomeDaMae { get; set; }
         public byte[]? Foto { get; set; }
         [Column("DiasAcesso")]
         public required string DiasDeAcesso { get; set; }

@@ -35,5 +35,25 @@ namespace VipSystemsTest.Test.Controller.Entities
             Assert.IsTrue(passwordResult);
             Assert.IsFalse(wrongPasswordResult);
         }
+        [Test]
+        public void Test_SecondLevelValidation()
+        {
+            Cliente? cliente = clienteController.SearchByCPF(CPFUsedForTest);
+            if (cliente != null)
+            {
+                Dictionary<SecondLevelValidationType, string> secondLevelValidationAnswer = new Dictionary<SecondLevelValidationType, string>()
+            {
+                { SecondLevelValidationType.MothersName, "NomeDaMaeTeste" },
+                { SecondLevelValidationType.BirthDayAndYear, "211994" },
+                { SecondLevelValidationType.BirthMonthAndYear, "121994" },
+                { SecondLevelValidationType.BirthDayAndMonth, "2112" }
+            };
+                for (int validationId = 0; validationId <= 3; validationId++)
+                {
+                    SecondLevelValidationType validationType = secondLevelValidationAnswer.Keys.ElementAt(validationId);
+                    Assert.IsTrue(clienteController.SecondLevelValidation(cliente, validationType, secondLevelValidationAnswer[validationType]));
+                }
+            }
+        }
     }
 }
