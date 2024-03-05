@@ -9,5 +9,6 @@ namespace VipSystemsTest.Model.IRepository.Entities
 {
     internal interface IRepositoryCliente : IRepository<Cliente>
     {
+        Cliente? GetByCPF(string CPF);
     }
 }

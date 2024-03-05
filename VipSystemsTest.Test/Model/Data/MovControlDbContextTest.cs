@@ -1,18 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using VipSystemsTest.Model.Data;
 using VipSystemsTest.Model.Entities;
-namespace VipSystemsTest.Test.Data
+namespace VipSystemsTest.Test.Model.Data
 {
     public class MovControlDbContextTest
     {
-        [Test]
-        public void Test_DbContextConfiguration()
+        public MovControlDbContext CreateTestDbContext()
         {
             var options = new DbContextOptionsBuilder<MovControlDbContext>()
                 .UseInMemoryDatabase("MemoryMovControlDb")
                 .Options;
-            var context = new MovControlDbContext(options);
-            Assert.NotNull(context);
+            return new MovControlDbContext(options);
+        }
+        [Test]
+        public void Test_DbContextConfiguration()
+        {
+            Assert.NotNull(CreateTestDbContext());
         }
     }
 }
