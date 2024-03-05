@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace VipSystemsTest.Model.Entities
 {
     [Table("vip_movcli")]
-    internal class Movimento
+    public class Movimento
     {
         [Column("Idmov")]
         public int Id { get; set; }

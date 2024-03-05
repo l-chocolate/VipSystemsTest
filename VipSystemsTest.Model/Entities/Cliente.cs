@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace VipSystemsTest.Model.Entities
 {
     [Table("vip_clientes")]
-    internal class Cliente
+    public class Cliente
     {
         [Column("Id_cliente")]
         public int Id { get; set; }
