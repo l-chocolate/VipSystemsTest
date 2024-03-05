@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VipSystemsTest.Controller\VipSystemsTest.Controller.csproj" />
     <ProjectReference Include="..\VipSystemsTest.Model\VipSystemsTest.Model.csproj" />
   </ItemGroup>
 

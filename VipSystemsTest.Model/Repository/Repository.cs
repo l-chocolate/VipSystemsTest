@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VipSystemsTest.Model.Data;
+using VipSystemsTest.Model.Entities;
 using VipSystemsTest.Model.IRepository;
 
 namespace VipSystemsTest.Model.Repository

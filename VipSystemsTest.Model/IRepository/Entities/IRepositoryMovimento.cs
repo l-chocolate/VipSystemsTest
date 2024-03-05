@@ -7,7 +7,7 @@ using VipSystemsTest.Model.Entities;
 
 namespace VipSystemsTest.Model.IRepository.Entities
 {
-    internal interface IRepositoryMovimento : IRepository<Movimento>
+    public interface IRepositoryMovimento : IRepository<Movimento>
     {
     }
 }

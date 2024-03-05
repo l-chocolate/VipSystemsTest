@@ -13,7 +13,7 @@ namespace VipSystemsTest.Test.Model.Repository.Entities
 {
     public class RepositoryClienteTest : RepositoryTest
     {
-        RepositoryCliente repositoryCliente;
+        public RepositoryCliente repositoryCliente;
         public RepositoryClienteTest()
         {
             repositoryCliente = new RepositoryCliente(dbContext);
