@@ -29,11 +29,9 @@ namespace VipSystemsTest.Test.Controller.Entities
         public void Test_ValidateClientPassword()
         {
             Cliente? cliente = repositoryClienteTest.clienteUsedForTest;
-            System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] enteredPassword = md5.ComputeHash(Encoding.UTF8.GetBytes("teste"));
-            byte[] wrongPassword = md5.ComputeHash(Encoding.UTF8.GetBytes("TeSTe"));
-            ClienteController.AccessValidationResult passwordResult = clienteController.ValidateClientPassword(cliente, enteredPassword);
-            ClienteController.AccessValidationResult wrongPasswordResult = clienteController.ValidateClientPassword(cliente, wrongPassword);
+            
+            ClienteController.AccessValidationResult passwordResult = clienteController.ValidateClientPassword(cliente, "teste");
+            ClienteController.AccessValidationResult wrongPasswordResult = clienteController.ValidateClientPassword(cliente, "TesTe");
             Assert.IsTrue(passwordResult.Result);
             Assert.IsTrue(wrongPasswordResult.Result == false && wrongPasswordResult.BlockReason == VipSystemsTest.Controller.Enum.BlockReason.SenhaInvalida);
         }

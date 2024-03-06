@@ -36,7 +36,7 @@ namespace VipSystemsTest.Test.Controller.Entities
             if (repositoryMovimentoTest.movimentoUsedForTest != null && repositoryMovimentoTest.clientUsedForTest != null)
             {
                 repositoryMovimentoTest.clientUsedForTest.HoraFinalDePermissaoDeAcesso = DateTime.Now.AddMinutes(-30).ToShortTimeString();
-                movimentoController.AddExit(repositoryMovimentoTest.movimentoUsedForTest, repositoryMovimentoTest.clientUsedForTest);
+                movimentoController.Edit(repositoryMovimentoTest.movimentoUsedForTest, repositoryMovimentoTest.clientUsedForTest);
             }
         }
         [Test]

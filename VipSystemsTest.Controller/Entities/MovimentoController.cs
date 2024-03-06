@@ -7,17 +7,16 @@ namespace VipSystemsTest.Controller.Entities
     {
         private readonly IRepositoryMovimento iRepositoryMovimento = iRepositoryMovimento;
 
-        public void AddExit(Movimento movimento, Cliente cliente)
+        public void Edit(Movimento movimento, Cliente cliente)
         {
-            movimento.DataEHoraDeSaida = DateTime.Now;
-            if (movimento.DataEHoraDeSaida >= DateTime.Parse(cliente.HoraFinalDePermissaoDeAcesso))
+            if (movimento.DataEHoraDeSaida != null && movimento.DataEHoraDeSaida >= DateTime.Parse(cliente.HoraFinalDePermissaoDeAcesso))
                 movimento.ObservacaoDeAcesso = "SAÍDA FORA DO HORÁRIO PERMITIDO.";
             iRepositoryMovimento.Update(movimento, movimento.Id);
         }
 
-        public void AddMovimento(Movimento movimentoUsedForTest)
+        public Movimento AddMovimento(Movimento movimentoUsedForTest)
         {
-            iRepositoryMovimento.Add(movimentoUsedForTest);
+            return iRepositoryMovimento.Add(movimentoUsedForTest);
         }
 
         public List<Movimento> GetAllClientLogins(Cliente cliente)

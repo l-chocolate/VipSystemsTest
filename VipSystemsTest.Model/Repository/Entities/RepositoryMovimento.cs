@@ -3,7 +3,7 @@ using VipSystemsTest.Model.Entities;
 using VipSystemsTest.Model.IRepository.Entities;
 using VipSystemsTest.Model.Repository;
 
-namespace VipSystemsTest.Model
+namespace VipSystemsTest.Model.Repository.Entities
 {
     public class RepositoryMovimento : Repository<Movimento>, IRepositoryMovimento
     {

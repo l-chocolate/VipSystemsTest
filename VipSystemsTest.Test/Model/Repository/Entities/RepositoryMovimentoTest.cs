@@ -1,5 +1,5 @@
-﻿using VipSystemsTest.Model;
-using VipSystemsTest.Model.Entities;
+﻿using VipSystemsTest.Model.Entities;
+using VipSystemsTest.Model.Repository.Entities;
 using VipSystemsTest.Test.Model.Repository;
 using VipSystemsTest.Test.Model.Repository.Entities;
 

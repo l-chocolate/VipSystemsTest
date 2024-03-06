@@ -13,10 +13,11 @@ namespace VipSystemsTest.Model.Repository
     {
         public MovControlDbContext dbContext = dbContext;
 
-        public void Add(TEntidade entidade)
+        public TEntidade Add(TEntidade entidade)
         {
-            dbContext.Add(entidade);
+            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<TEntidade> AddedEntity = dbContext.Add(entidade);
             dbContext.SaveChanges();
+            return AddedEntity.Entity;
         }
         public void Update(TEntidade entidade, int id)
         {

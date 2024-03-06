@@ -23,7 +23,7 @@ namespace VipSystemsTest.Test.Model.Repository.Entities
             HoraFinalDePermissaoDeAcesso = "23:59:59",
             HoraInicialDePermissaoDeAcesso = "00:00:00",
             Nome = "Teste",
-            Senha = CreateHashPassword("teste"),
+            Senha = "698dc19d489c4e4db73e28a713eab07b",
             DataDeNascimento = DateTime.Parse("1994-12-21"),
             NomeDaMae = "NomeDaMaeTeste"
         };

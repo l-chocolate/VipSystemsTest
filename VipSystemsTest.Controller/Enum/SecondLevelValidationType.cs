@@ -1,6 +1,6 @@
 ﻿namespace VipSystemsTest.Controller
 {
-    public enum SecondLevelValidationType
+    public enum SecondLevelValidationType : int
     {
         MothersName = 0,
         BirthDayAndYear = 1,

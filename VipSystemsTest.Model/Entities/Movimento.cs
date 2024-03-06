@@ -18,13 +18,13 @@ namespace VipSystemsTest.Model.Entities
         public virtual Cliente? Cliente { get; set; }
         public string? Local { get; set; }
         [Column("Dthrent")]
-        public DateTime DataEHoraDeEntrada { get; set; }
+        public DateTime? DataEHoraDeEntrada { get; set; }
         [Column("Dthrsai")]
-        public DateTime DataEHoraDeSaida { get; set; }
+        public DateTime? DataEHoraDeSaida { get; set; }
         [Column("Idstatus")]
         public double IdDeStatus { get; set; }
         [Column("Motbloqueio")]
-        public double MotivoDoBloqueio { get; set; }
+        public string? MotivoDoBloqueio { get; set; }
         [Column("Obsacesso")]
         public string? ObservacaoDeAcesso { get; set; }
     }

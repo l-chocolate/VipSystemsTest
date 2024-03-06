@@ -60,14 +60,20 @@ namespace VipSystemsTest.Controller
             }
         }
 
-        public AccessValidationResult ValidateClientPassword(Cliente? cliente, byte[] enteredPassword)
+        public AccessValidationResult ValidateClientPassword(Cliente? cliente, string enteredPassword)
         {
-            bool isValid = cliente?.Senha == TransformHashByteArrayIntoString(enteredPassword);
+            bool isValid = cliente?.Senha == TransformHashByteArrayIntoString(TransformStringIntoByteArray(enteredPassword));
             AccessValidationResult result = new AccessValidationResult()
             {
                 Result = isValid,
                 BlockReason = (isValid ? null : BlockReason.SenhaInvalida)
             };
+            return result;
+        }
+        static byte[] TransformStringIntoByteArray(string stringToTransform)
+        {
+            System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+            byte[] result = md5.ComputeHash(Encoding.UTF8.GetBytes(stringToTransform));
             return result;
         }
         static string TransformHashByteArrayIntoString(byte[] byteArray)
