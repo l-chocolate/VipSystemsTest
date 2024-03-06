@@ -8,13 +8,15 @@ using VipSystemsTest.Test.Model.Data;
 
 namespace VipSystemsTest.Test.Model.Repository
 {
-    public class RepositoryTest
+    public abstract class RepositoryTest
     {
         public  MovControlDbContext dbContext;
         public RepositoryTest()
         {
             MovControlDbContextTest dbContextTest = new MovControlDbContextTest();
             dbContext = dbContextTest.CreateTestDbContext();
+            InitializeTestData();
         }
+        public abstract void InitializeTestData();
     }
 }

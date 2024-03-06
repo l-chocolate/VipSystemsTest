@@ -11,23 +11,23 @@ namespace VipSystemsTest.Test.Controller.Entities
 {
     public class ClienteControllerTest
     {
-        const string CPFUsedForTest = "12345678910";
+        RepositoryClienteTest repositoryClienteTest;
         ClienteController clienteController;
         public ClienteControllerTest()
         {
-            RepositoryClienteTest repositoryClienteTest = new RepositoryClienteTest();
+            repositoryClienteTest = new RepositoryClienteTest();
             clienteController = new ClienteController(repositoryClienteTest.repositoryCliente);
         }
         [Test]
         public void Test_SearchByCPF()
         {
-            Cliente? cliente = clienteController.SearchByCPF(CPFUsedForTest);
+            Cliente? cliente = clienteController.SearchByCPF(repositoryClienteTest.clienteUsedForTest.CPF);
             Assert.IsNotNull(cliente);
         }
         [Test]
         public void Test_ValidateClientPassword()
         {
-            Cliente? cliente = clienteController.SearchByCPF(CPFUsedForTest);
+            Cliente? cliente = clienteController.SearchByCPF(repositoryClienteTest.clienteUsedForTest.CPF);
             string enteredPassword = "teste";
             string wrongPassword = "teste1";
             bool passwordResult = clienteController.ValidateClientPassword(cliente, enteredPassword);
@@ -38,7 +38,7 @@ namespace VipSystemsTest.Test.Controller.Entities
         [Test]
         public void Test_SecondLevelValidation()
         {
-            Cliente? cliente = clienteController.SearchByCPF(CPFUsedForTest);
+            Cliente? cliente = clienteController.SearchByCPF(repositoryClienteTest.clienteUsedForTest.CPF);
             if (cliente != null)
             {
                 Dictionary<SecondLevelValidationType, string> secondLevelValidationAnswer = new Dictionary<SecondLevelValidationType, string>()

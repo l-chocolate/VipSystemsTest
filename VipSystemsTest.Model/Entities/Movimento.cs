@@ -15,7 +15,7 @@ namespace VipSystemsTest.Model.Entities
         [Column("Id_cliente")]
         public int IdDoCliente { get; set; }
         [ForeignKey("Id_cliente")]
-        public virtual required Cliente Cliente { get; set; }
+        public virtual Cliente? Cliente { get; set; }
         public string? Local { get; set; }
         [Column("Dthrent")]
         public DateTime DataEHoraDeEntrada { get; set; }

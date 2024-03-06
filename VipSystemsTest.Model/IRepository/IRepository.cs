@@ -9,5 +9,6 @@ namespace VipSystemsTest.Model.IRepository
 {
     public interface IRepository<TEntidade> where TEntidade : class
     {
+        void Add(TEntidade entidade);
     }
 }

@@ -14,25 +14,29 @@ namespace VipSystemsTest.Test.Model.Repository.Entities
     public class RepositoryClienteTest : RepositoryTest
     {
         public RepositoryCliente repositoryCliente;
+        public Cliente clienteUsedForTest = new Cliente()
+        {
+            Id = 1,
+            CPF = "12345678910",
+            DiasDeAcesso = "",
+            HoraFinalDePermissaoDeAcesso = "",
+            HoraInicialDePermissaoDeAcesso = "",
+            Nome = "Teste",
+            Senha = "teste",
+            DataDeNascimento = DateTime.Parse("1994-12-21"),
+            NomeDaMae = "NomeDaMaeTeste"
+        };
         public RepositoryClienteTest()
         {
             repositoryCliente = new RepositoryCliente(dbContext);
-            InitializeTestData();
         }
-        private void InitializeTestData()
+        public override void InitializeTestData()
         {
-            dbContext.Clientes.Add(new Cliente() { 
-                CPF = "12345678910", 
-                DiasDeAcesso = "", 
-                HoraFinalDePermissaoDeAcesso = "", 
-                HoraInicialDePermissaoDeAcesso = "", 
-                Nome = "Teste", 
-                Senha = "teste",
-                DataDeNascimento = DateTime.Parse("1994-12-21"),
-                NomeDaMae = "NomeDaMaeTeste"
+            if (dbContext.Clientes.Count() == 0)
+            {
+                dbContext.Clientes.Add(clienteUsedForTest);
+                dbContext.SaveChanges();
             }
-            );
-            dbContext.SaveChanges();
         }
         [Test]
         public void Test_GetClientByCPF()
