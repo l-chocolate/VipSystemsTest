@@ -30,9 +30,18 @@ namespace VipSystemsTest.View
             {
                 if (!movimentoController.IsUserBlocked(cliente))
                 {
-                    clientInvalidLogins.Add(cliente, 0);
-                    panel_senha.Visible = true;
-                    panel_CPF.Enabled = false;
+                    ClienteController.AccessValidationResult result = clienteController.ValidateAccessDayAndTime(cliente);
+                    if (!result.Result)
+                    {
+                        movimentoController.AddMovimento(CreateMovimentoObject(cliente, result));
+                        MessageBox.Show(ReturnBlockReasonText(result.BlockReason.Value), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        clientInvalidLogins.Add(cliente, 0);
+                        panel_senha.Visible = true;
+                        panel_CPF.Enabled = false;
+                    }
                 }
                 else
                 {

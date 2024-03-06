@@ -45,6 +45,7 @@
             pb_userPicture.Location = new Point(12, 12);
             pb_userPicture.Name = "pb_userPicture";
             pb_userPicture.Size = new Size(222, 227);
+            pb_userPicture.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_userPicture.TabIndex = 0;
             pb_userPicture.TabStop = false;
             // 
