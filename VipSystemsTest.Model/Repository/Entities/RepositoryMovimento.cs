@@ -10,5 +10,10 @@ namespace VipSystemsTest.Model
         public RepositoryMovimento(MovControlDbContext dbContext) : base(dbContext)
         {
         }
+
+        public List<Movimento> GetAllClientLogins(Cliente cliente)
+        {
+            return dbContext.Movimentos.Where(movimento => movimento.IdDoCliente == cliente.Id).ToList();
+        }
     }
 }

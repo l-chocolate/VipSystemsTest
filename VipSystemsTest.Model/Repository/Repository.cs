@@ -18,5 +18,18 @@ namespace VipSystemsTest.Model.Repository
             dbContext.Add(entidade);
             dbContext.SaveChanges();
         }
+        public void Update(TEntidade entidade, int id)
+        {
+            TEntidade? currentEntidade = Get(id);
+            if (currentEntidade != null)
+            {
+                dbContext.Entry<TEntidade>(currentEntidade).CurrentValues.SetValues(entidade);
+                dbContext.SaveChanges();
+            }
+        }
+        public TEntidade? Get(int id)
+        {
+            return dbContext.Find<TEntidade>(id);
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace VipSystemsTest.Model.IRepository.Entities
 {
     public interface IRepositoryMovimento : IRepository<Movimento>
     {
+        List<Movimento> GetAllClientLogins(Cliente cliente);
     }
 }
